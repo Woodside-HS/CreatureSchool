@@ -5,6 +5,12 @@
 
 define narrator = Character("...")
 define player = Character("[pfn]")
+define lea = Character("Léa")
+
+#character images
+
+image lea_def = "lea_default.png"
+image lea_hap = "lea_happy.png"
 
 #pronouns
 #sfc = subject form with capital at beginning (She, He, They)
@@ -19,6 +25,7 @@ image myana = "myana.png"
 image deal = "deal.png"
 image application = "application.png"
 image schoolsign = "schoolsign.png"
+image d_door = "dorm_door.png"
 
 # The game starts here.
 
@@ -32,59 +39,59 @@ label start:
 
     # These display lines of dialogue.
 
-    narrator "My mom always told me stories of encounters with creatures everyone else thought were just mere figments of millennia-old human imagination."
+    narrator "{i}My mom always told me stories of encounters with creatures everyone else thought were just mere figments of millennia-old human imagination.{/i}"
 
-    narrator "I myself always oscillated between believing her and dismissing her stories as silly."
+    narrator "{i}I myself always oscillated between believing her and dismissing her stories as silly.{/i}"
 
     scene myana
 
-    narrator "But,"
+    narrator "{i}But,{/i}"
 
-    narrator "her stories are completely true."
+    narrator "{i}her stories are completely true.{/i}"
 
-    narrator "At age 10, I saw for myself that monsters are real when my parents turned on the TV for the latest scope by Unbelieveably Real News."
+    narrator "{i}At age 10, I saw for myself that monsters are real when my parents turned on the TV for the latest scope by Unbelieveably Real News.{/i}"
 
-    narrator "Myana Aditi, a well-known celebrity dating Blyke Riley, suddenly grew whiskers,"
+    narrator "{i}Myana Aditi, a well-known celebrity dating Blyke Riley, suddenly grew whiskers,{/i}"
 
-    narrator "her nose became that of a feline's, and she took off her hat to reveal two very soft-looking cat ears with a long tail to boot."
+    narrator "{i}her nose became that of a feline's, and she took off her hat to reveal two very soft-looking cat ears with a long tail to boot.{/i}"
 
-    narrator "My dad and I thought there was some film witchcraft going on behind the scenes but my mom was grinning at the TV screen."
+    narrator "{i}My dad and I thought there was some film witchcraft going on behind the scenes but my mom was grinning at the TV screen.{/i}"
 
-    narrator "'I told you so,' she said."
+    narrator "{i}'I told you so,' she said.{/i}"
 
     scene deal
 
-    narrator "It turns out that the human government and the other-species government of our country made a deal a few centuries back."
+    narrator "{i}It turns out that the human government and the other-species government of our country made a deal a few centuries back.{/i}"
 
-    narrator "For the longest time, it was prohibited for an other-species to walk around in human areas wihtout first disgusing themself as a human."
+    narrator "{i}For the longest time, it was prohibited for an other-species to walk around in human areas wihtout first disgusing themself as a human.{/i}"
 
-    narrator "Other-species also had to hide their town and cities from human eyes with magic."
+    narrator "{i}Other-species also had to hide their town and cities from human eyes with magic and news about them were to never mix with our own.{/i}"
 
-    narrator "If a human ending up encountering an other-species in their natural state or somehow walked into their town, they have two choices:"
+    narrator "{i}If a human ending up encountering an other-species in their natural state or somehow walked into their town, they have two choices:{/i}"
 
-    narrator "1) to be deported from the town and have their memory wiped"
+    narrator "{i}1) to be deported from the town and have their memory wiped{/i}"
 
-    narrator "or in rare cases, 2) to make a legal contract with a local governor that allows the human to enter and leave other-species towns freely but anticipate severe punishment should they betray the secrets of other-species."
+    narrator "{i}or in rare cases, 2) to make a legal contract with a local governor that allows the human to enter and leave other-species towns freely but anticipate severe punishment should they betray the secrets of other-species.{/i}"
 
-    narrator "Mom always thought these restrictions were silly because they didn't exist in her home country so the monsters and people could learn to live together in harmony."
+    narrator "{i}Mom always thought these restrictions were silly because they didn't exist in her home country so the monsters and people could learn to live together in harmony.{/i}"
 
-    narrator "In any case, after Myana's rebellious show, the two authorities decided to abolish this deal once and for all and replace it with a new one."
+    narrator "{i}In any case, after Myana's rebellious show, the two authorities decided to abolish this deal once and for all and replace it with a new one.{/i}"
 
-    narrator "It is the Merger Act: Everyone is allowed to mingle and co-exist in each other's worlds and our leaders will work together to maintain peace and order between the various species."
+    narrator "{i}It is the Merger Act: Everyone is allowed to mingle and co-exist in each other's worlds and our leaders will work together to maintain peace and order between the various species.{/i}"
 
     scene schoolsign
 
-    narrator "I'm going to start high school soon and I've chosen to attend Florce Academy, a private school boasting over a century's worth of pride in teaching monster students and only monster students."
+    narrator "{i}I'm going to start high school soon and I've chosen to attend Florce Academy, a private school boasting over a century's worth of pride in teaching monster students and only monster students.{/i}"
 
-    narrator "However, since the passing of the Merger Act, human students were welcome to attend as well."
+    narrator "{i}However, since the passing of the Merger Act, human students were welcome to attend as well.{/i}"
 
-    narrator "The Florce student-body has been mostly other-species even in these recent years, so the headmaster reached out to my parents and offered me a scholarship with admission."
+    narrator "{i}The Florce student-body has been mostly other-species even in these recent years, so the headmaster reached out to my parents and offered me a scholarship with admission.{/i}"
 
     scene application
 
-    narrator "Dad is a bit apprehensive about me going to a school made of mostly monster students, but mom is ecstatic."
+    narrator "{i}Dad is a bit apprehensive about me going to a school made of mostly monster students, but mom is ecstatic.{/i}"
 
-    narrator "I've made my decision and all I need to do now is fill out this application form."
+    narrator "{i}I've made my decision and all I need to do now is fill out this application form.{/i}"
 
     #asking player for name
     #pfn = player first name
@@ -132,7 +139,58 @@ label start:
             $ pf = "his"
             $ of = "him"
 
-    player "This is [pfn] [pmn] [pln]. [sfc] [verb] going to Florce Academy. Okay, now let's see what the rest of this application has to offer."
+    player "{i}This is [pfn] [pmn] [pln]. [sfc] [verb] going to Florce Academy. Okay, now let's see what the rest of this application is asking me.{/i}"
+
+    scene schoolsign
+
+    narrator "{i}A week before school starts.{/i}"
+
+    show lea_def
+
+    player "{i}I'm stepping onto the really beautiful but kinda overwhelmingly large campus. Hey, there's a girl standing by the sign! Perhaps she can help.{/i}"
+
+    lea "Hi there! Are you a freshman?"
+
+    player "Yeah. I'm a bit lost. Any chance you can show me around?"
+
+    hide lea_def
+    show lea_hap
+
+    lea "Totally!"
+
+    hide lea_hap
+    show lea_def
+
+    lea "We should stop by your dorm first to take off that heavy load you're carrying. What's your dorm number?"
+
+    player "8."
+
+    lea "I know exactly where that is. Follow me!"
+
+    player "{i}I follow the girl to a building several hundred feet away from the school entrance. We step inside.{/i}"
+
+    scene d_door
+
+    player "{i}The carpetted floor is colored like grass and I'm sure it feels like it, too. The walls are painted a pleasing mix of blue and white to look like a cloudy sky.{/i}"
+
+    player "{i}It feels like I'm walking through a plains field on a warm day.{/i}"
+
+    hide lea_def
+
+    show lea_hap
+
+    lea "Here we are! Your very own dorm room!"
+
+    lea "No roomates to share it with, but don't worry, if you get lonely you can always talk to your neighbors or come and find me!"
+
+    hide lea_hap
+    show lea_def
+
+    lea "Speaking of me, I forgot to properly introduce myself didn't I?"
+
+    player "Well, I'm [pfn]. Pleasure to meet you!"
+
+    lea "Likewise! I'm Léa!"
 
     # This ends the game.
 

@@ -1,13 +1,13 @@
-Thu Jan 23 14:27:22 2020
+Wed Jan 29 13:53:59 2020
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
 
 Bootstrap to the start of init.init took 0.10s
-Early init took 0.01s
+Early init took 0.00s
 Loader init took 0.04s
 Loading error handling took 0.03s
-Loading script took 0.23s
+Loading script took 0.25s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
@@ -30,7 +30,7 @@ Analyze screens took 0.02s
 Save screen analysis took 0.09s
 Prepare screens took 0.08s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.08s
+Save bytecode. took 0.07s
 Running _start took 0.00s
 Performance test:
 Interface start took 0.03s
@@ -410,14 +410,14 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 2.33500003815s
+Total time until interface ready: 2.3710000515s
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
-- Frame drawn at 0.017949 seconds.
 - Frame drawn at 0.018949 seconds.
-- Frame drawn at 0.027949 seconds.
-- Frame drawn at 0.044949 seconds.
-- 0.044949 seconds to render 5 frames.
+- Frame drawn at 0.019949 seconds.
+- Frame drawn at 0.021949 seconds.
+- Frame drawn at 0.037949 seconds.
+- 0.037949 seconds to render 5 frames.
 Cleaning stores took 0.00s
 Init translation took 0.00s
 Build styles took 0.01s
@@ -425,3 +425,39 @@ Load screen analysis took 0.03s
 Analyze screens took 0.00s
 Prepare screens took 0.00s
 Running _start took 0.00s
+The window was minimized.
+The window was restored.
+
+primary display bounds: (0, 0, 1920, 1200)
+swap interval: 1 frames
+Windowed mode.
+Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
+Root FBO is: 0
+FBO Maximum Texture Size: 2048
+The window was minimized.
+The window was restored.
+
+primary display bounds: (0, 0, 1920, 1200)
+swap interval: 1 frames
+Windowed mode.
+Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
+Root FBO is: 0
+FBO Maximum Texture Size: 2048
+The window was minimized.
+The window was restored.
+
+primary display bounds: (0, 0, 1920, 1200)
+swap interval: 1 frames
+Windowed mode.
+Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
+Root FBO is: 0
+FBO Maximum Texture Size: 2048
+The window was minimized.
+The window was restored.
+
+primary display bounds: (0, 0, 1920, 1200)
+swap interval: 1 frames
+Windowed mode.
+Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
+Root FBO is: 0
+FBO Maximum Texture Size: 2048

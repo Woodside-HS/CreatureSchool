@@ -26,6 +26,14 @@ image deal = "deal.png"
 image application = "application.png"
 image schoolsign = "schoolsign.png"
 image d_door = "dorm_door.png"
+image dorm_day = "dorm_d.png"
+image dorm_night_on = "dorm_n_lon.png"
+image dorm_night_off = "dorm_n_loff.png"
+
+#variables
+$money = 400
+$cooking = 0
+$repair = 0
 
 # The game starts here.
 
@@ -191,6 +199,82 @@ label start:
     player "Well, I'm [pfn]. Pleasure to meet you!"
 
     lea "Likewise! I'm Léa!"
+
+    player "{i}The two of us stand awkwardly for a moment.{/i}"
+
+    lea "Well, what are you waiting for, come inside!"
+
+    hide lea_def
+    show lea_hap
+
+    lea "I'll even help you with your stuff!"
+
+    scene dorm_day
+
+    show lea_def
+
+    lea "Here we are! This will be your home for the school year. What do you think?"
+
+    menu:
+        "Do you like your new dorm?"
+
+        "Really simple and the colors are great. I like it!":
+            hide lea_def
+            show lea_hap
+            lea "That's awesome! I'm sure you'll feel right at home very soon."
+
+            hide lea_hap
+            show lea_def
+
+            lea "Still, if you want to decorate your room some more, I'd be happy to go shopping with you sometime."
+
+        "Honestly this dorm could have more decor, but the colors aren't bad.":
+            lea "Good thing students can decorate their dorms."
+
+            lea "Ooooooh! We can go shopping for room decor sometime!"
+
+        "I like the more minamilist style going on here, but the colors, dear lord, the colors! Could they get any more plain and somber?.":
+            hide lea_def
+            show lea_hap
+
+            lea "I know just the solution to balance out these plain and somber colors: decor shopping!!!"
+
+            hide lea_hap
+            show lea_def
+
+            lea "Consider going shopping with me sometime, will you?"
+
+        "Is decorating your dorms allowed here?":
+            hide lea_def
+            show lea_hap
+
+            lea "Totally!! If you don't like the way your room looks right now, you can totally come shopping with me sometime!"
+
+    hide lea_hap
+    show lea_def
+
+    lea "Anyway, let me help you with all that!"
+
+    player "{i}Léa helps me put down and put away all of my stuff into the closet and various drawers. The job was done very quickly.{/i}"
+
+    player "Wow! That was fast! Thank you so much for helping me out!"
+
+    hide lea_def
+    show lea_hap
+
+    lea "No problem, [pfn]!"
+
+    hide lea_hap
+    show lea_def
+
+    lea "Oh! One more thing before you go. Let me give you my number. Your phone please?"
+
+    player "{i} I pull out my phone and give it to Léa. She types in several digits then hands it back to me.{/i}"
+
+    hide lea_def
+    show lea_hap
+
+    lea "I'm usually free after school on most days and available most weekends! Feel free to call or text me if you need anything and don't be afraid to say hi if we see each other in school!"
 
     # This ends the game.
 

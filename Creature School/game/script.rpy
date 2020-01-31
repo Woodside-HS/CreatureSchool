@@ -12,6 +12,9 @@ define lea = Character("Léa")
 image lea_def = "lea_default.png"
 image lea_hap = "lea_happy.png"
 
+#button images
+image phone = "phone.png"
+
 #pronouns
 #sfc = subject form with capital at beginning (She, He, They)
 #sfl = subject form in all lowercase (she, he, they)
@@ -31,9 +34,16 @@ image dorm_night_on = "dorm_n_lon.png"
 image dorm_night_off = "dorm_n_loff.png"
 
 #variables
-$money = 400
-$cooking = 0
-$repair = 0
+$ money = 400
+$ cooking = 0
+$ repair = 0
+$ gaming = 0
+$ art = 0
+$ writing = 0
+
+#cellphone
+$ lea_num = False
+$ irene_num = False
 
 # The game starts here.
 
@@ -274,7 +284,34 @@ label start:
     hide lea_def
     show lea_hap
 
-    lea "I'm usually free after school on most days and available most weekends! Feel free to call or text me if you need anything and don't be afraid to say hi if we see each other in school!"
+    lea "I'm usually free after school most days and available most weekends! Feel free to call or text me if you need anything and don't be afraid to say hi if we see each other in school!"
+
+    hide lea_hap
+    show lea_def
+
+    lea "Well, amyway, I got to go. I'll see you around?"
+
+    player "Totally! See you later, Léa!"
+
+    hide lea_def
+
+    player "{i} Léa left my dorm room. It's still pretty bright out, I could go outside or I could stay inside. Maybe I can read a book or play a video game."
+
+    menu:
+        "{i}What should I do?{/i}"
+
+        #"Explore the campus some more.":
+            #jump explore_campus
+
+        "Read a cookbook.":
+            player "{i}I spend a few hours looking through a variety of different recipes. Maybe I should try making all of these sooner or later."
+            $cooking += 3
+            player "{i}Before I knew it, night fell and I had gotten very sleepy.{/i}"
+
+        "Read a deeply enriching and complex novel.":
+            player "{i}Time was flying so fast as I was so engrossed into this really profound story. The plot was amazing and the characters were so multi-dimensional that I swore they could be real people.{/i}"
+            player "{i}Next time I write something, I'll be sure to take a few pointers from this book.{/i}"
+            $writing += 3
 
     # This ends the game.
 

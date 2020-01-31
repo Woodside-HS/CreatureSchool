@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 121: expected statement.
-    sfc = "They"
-        ^
-
-File "game/script.rpy", line 123: expected statement.
-    sfc = "She"
-        ^
-
-File "game/script.rpy", line 125: expected statement.
-    sfc = "He"
-        ^
+File "game/script.rpy", line 303: choice menuitem expects a non-empty block.
+    "Explore the campus some more.":
+                                    ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu Jan 16 13:48:53 2020
+Fri Jan 31 14:54:34 2020

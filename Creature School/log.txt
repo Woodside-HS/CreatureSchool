@@ -1,4 +1,4 @@
-Wed Jan 29 13:53:59 2020
+Fri Jan 31 14:57:44 2020
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
  
@@ -7,7 +7,7 @@ Bootstrap to the start of init.init took 0.10s
 Early init took 0.00s
 Loader init took 0.04s
 Loading error handling took 0.03s
-Loading script took 0.25s
+Loading script took 0.26s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Importing _renpysteam: ImportError('No module named _renpysteam',)
@@ -21,7 +21,7 @@ Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.02s
 DPI scale factor: 1.000000
-Creating interface object took 0.16s
+Creating interface object took 0.15s
 Cleaning stores took 0.00s
 Init translation took 0.03s
 Build styles took 0.01s
@@ -30,10 +30,10 @@ Analyze screens took 0.02s
 Save screen analysis took 0.09s
 Prepare screens took 0.08s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.07s
+Save bytecode. took 0.08s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.03s
+Interface start took 0.02s
 Couldn't import angle renderer:
 Traceback (most recent call last):
   File "C:\Users\bobrien\Desktop\renpy-7.3.5-sdk\renpy\display\core.py", line 1939, in make_draw
@@ -410,54 +410,29 @@ Texture testing:
 - 2048px textures work.
 Root FBO is: 0
 FBO Maximum Texture Size: 2048
-Total time until interface ready: 2.3710000515s
+Total time until interface ready: 2.40000009537s
 - Target is 5 frames in 0.333333333333 seconds.
 - Frame drawn at 0.000000 seconds.
 - Frame drawn at 0.018949 seconds.
 - Frame drawn at 0.019949 seconds.
-- Frame drawn at 0.021949 seconds.
-- Frame drawn at 0.037949 seconds.
-- 0.037949 seconds to render 5 frames.
-Cleaning stores took 0.00s
-Init translation took 0.00s
-Build styles took 0.01s
-Load screen analysis took 0.03s
-Analyze screens took 0.00s
-Prepare screens took 0.00s
-Running _start took 0.00s
-The window was minimized.
-The window was restored.
+- Frame drawn at 0.031949 seconds.
+- Frame drawn at 0.047949 seconds.
+- 0.047949 seconds to render 5 frames.
 
-primary display bounds: (0, 0, 1920, 1200)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
-Root FBO is: 0
-FBO Maximum Texture Size: 2048
-The window was minimized.
-The window was restored.
+Full traceback:
+  File "game/script.rpy", line 308, in script
+    $cooking += 3
+  File "C:\Users\bobrien\Desktop\renpy-7.3.5-sdk\renpy\ast.py", line 914, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\bobrien\Desktop\renpy-7.3.5-sdk\renpy\python.py", line 2028, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 308, in <module>
+    $cooking += 3
+NameError: name 'cooking' is not defined
 
-primary display bounds: (0, 0, 1920, 1200)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
-Root FBO is: 0
-FBO Maximum Texture Size: 2048
-The window was minimized.
-The window was restored.
-
-primary display bounds: (0, 0, 1920, 1200)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
-Root FBO is: 0
-FBO Maximum Texture Size: 2048
-The window was minimized.
-The window was restored.
-
-primary display bounds: (0, 0, 1920, 1200)
-swap interval: 1 frames
-Windowed mode.
-Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
-Root FBO is: 0
-FBO Maximum Texture Size: 2048
+While running game code:
+  File "game/script.rpy", line 308, in script
+    $cooking += 3
+  File "game/script.rpy", line 308, in <module>
+    $cooking += 3
+NameError: name 'cooking' is not defined

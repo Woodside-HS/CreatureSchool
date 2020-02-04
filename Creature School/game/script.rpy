@@ -34,16 +34,16 @@ image dorm_night_on = "dorm_n_lon.png"
 image dorm_night_off = "dorm_n_loff.png"
 
 #variables
-$ money = 400
-$ cooking = 0
-$ repair = 0
-$ gaming = 0
-$ art = 0
-$ writing = 0
+default money = 400
+default cooking = 0
+default repair = 0
+default gaming = 0
+default art = 0
+default writing = 0
 
 #cellphone
-$ lea_num = False
-$ irene_num = False
+default lea_num = False
+default irene_num = False
 
 # The game starts here.
 
@@ -289,7 +289,7 @@ label start:
     hide lea_hap
     show lea_def
 
-    lea "Well, amyway, I got to go. I'll see you around?"
+    lea "Well, anyway, I got to go. I'll see you around?"
 
     player "Totally! See you later, Léa!"
 
@@ -304,14 +304,28 @@ label start:
             #jump explore_campus
 
         "Read a cookbook.":
-            player "{i}I spend a few hours looking through a variety of different recipes. Maybe I should try making all of these sooner or later."
+            player "{i}I spent a few hours looking through a variety of different recipes. Maybe I should try making all of these sooner or later."
             $cooking += 3
-            player "{i}Before I knew it, night fell and I had gotten very sleepy.{/i}"
+            narrator "{i}You increased your cooking skill!{/i}"
 
-        "Read a deeply enriching and complex novel.":
-            player "{i}Time was flying so fast as I was so engrossed into this really profound story. The plot was amazing and the characters were so multi-dimensional that I swore they could be real people.{/i}"
-            player "{i}Next time I write something, I'll be sure to take a few pointers from this book.{/i}"
+        "Write a short story.":
+            player "{i}I pulled out all my writing materials and got busy writing a short story. I don't know whether it turned out okay or not but that was fun!{/i}"
             $writing += 3
+            narrator "{i}You increased your writing skill!{/i}"
+
+        "Draw something":
+            player "{i}I got all my art tools out and started drawing. After what seemed to be hours, I'm finally finished with my latest piece. Whew!{/i}"
+            $art += 3
+            narrator "{i}You increased your art skill!{/i}"
+
+        "Play a computer game.":
+            player "{i}I booted up my computer and the game of my choice. The moment I clicked the play button, everything else was a blur, kind of."
+            $gaming += 3
+            narrator "{i}You increased your gaming skill!{/i}"
+
+    scene dorm_night_off
+
+    player "{i}Before I knew it, night fell and I had gotten very sleepy.{/i}"
 
     # This ends the game.
 

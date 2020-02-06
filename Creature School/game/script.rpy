@@ -32,18 +32,48 @@ image d_door = "dorm_door.png"
 image dorm_day = "dorm_d.png"
 image dorm_night_on = "dorm_n_lon.png"
 image dorm_night_off = "dorm_n_loff.png"
+image wp = "walking_path.png"
+image sde = "starry_dead_end.png"
 
-#variables
+#money and skills
 default money = 400
 default cooking = 0
 default repair = 0
 default gaming = 0
 default art = 0
 default writing = 0
+default strength = 0
+
+#character relationship level
+default lea_lev = 1
+default irene_lev = 2
 
 #cellphone
 default lea_num = False
 default irene_num = False
+
+#special booleans
+default beento_sde = False
+
+#This is your control screen that will allow you to show/hide the stat screen
+screen control():
+    frame:
+        xalign 0.95
+        yalign 2
+        textbutton "Stats" action If(renpy.get_screen("stat_box"), Hide("stat_box"), Show("stat_box"))
+
+#This is your stat_box Screen
+screen stat_box():
+    frame:
+        align (0.5,0.5)
+        vbox:
+            text "Money: [money]"
+            text "Cooking: [cooking]"
+            text "Repair: [repair]"
+            text "Gaming: [gaming]"
+            text "Art: [art]"
+            text "Writing: [writing]"
+            text "Strength: [strength]"
 
 # The game starts here.
 
@@ -300,32 +330,61 @@ label start:
     menu:
         "{i}What should I do?{/i}"
 
-        #"Explore the campus some more.":
-            #jump explore_campus
+        "Explore the campus some more.":
+            player "{i}I decided to leave my dorm room to explore the campus some more{/i}"
+            scene wp
+            player "{i}I managed to locate the locate my classroom buildings, the cafeteria, and the library along with most of the various restrooms across campus on my walk.{/i}"
+            player "{i}On my way back from the library to the dorms, I noticed a curious split in the path.{/i}"
+
+            menu:
+                "{i}Do I go back to my dorm or see where this other path takes me?{/i}"
+
+                "Go back to the dorms":
+                    player "{i}I decided that I've had enough walking around for today, so I headed back to my room.{/i}"
+                    $strength += 1
+                    narrator "{i}You increased your strength skill!{/i}"
+
+                "Take the other path":
+                    player "{i}I was feeling adventurous, so I thought taking this unfamilar path was a good idea.{/i}"
+                    scene sde
+                    player "{i}After what seemed to be a long walk on a flat, level path, I came across a hill.{/i}"
+                    player "{i}The path still goes over this hill so I continued walking.{/i}"
+                    player "{i}To my surprise, the path stopped on the very top of the hill.{/i}"
+                    player "{i}However, I looked up and saw that the skies were clearer than I've ever seen before.{/i}"
+                    player "{i}Any star-gazer would be really happy to find this place.{/i}"
+                    player "{i}Realizing how dark it had gotten, I turned around to head back to my dorm.{/i}"
+                    $beento_sde = True
+                    $strength += 3
 
         "Read a cookbook.":
             player "{i}I spent a few hours looking through a variety of different recipes. Maybe I should try making all of these sooner or later."
-            $cooking += 3
+            $cooking += 1
             narrator "{i}You increased your cooking skill!{/i}"
 
         "Write a short story.":
             player "{i}I pulled out all my writing materials and got busy writing a short story. I don't know whether it turned out okay or not but that was fun!{/i}"
-            $writing += 3
+            $writing += 1
             narrator "{i}You increased your writing skill!{/i}"
 
         "Draw something":
             player "{i}I got all my art tools out and started drawing. After what seemed to be hours, I'm finally finished with my latest piece. Whew!{/i}"
-            $art += 3
+            $art += 1
             narrator "{i}You increased your art skill!{/i}"
 
         "Play a computer game.":
             player "{i}I booted up my computer and the game of my choice. The moment I clicked the play button, everything else was a blur, kind of."
-            $gaming += 3
+            $gaming += 1
             narrator "{i}You increased your gaming skill!{/i}"
 
     scene dorm_night_off
 
-    player "{i}Before I knew it, night fell and I had gotten very sleepy.{/i}"
+    player "{i}Before I knew it, the sky got darker and I had gotten very sleepy.{/i}"
+
+    show screen control()
+
+    scene dorm_day
+
+    narrator "{i}First day of school - Monday.{/i}"
 
     # This ends the game.
 

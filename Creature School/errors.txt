@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 303: choice menuitem expects a non-empty block.
-    "Explore the campus some more.":
-                                    ^
+File "game/script.rpy", line 68: u'phone' is not a keyword argument or valid child for the imagebutton statement.
+    imagebutton phone action If(renpy.get_screen("phone"), Hide("phone"), Show("phone"))
+                     ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Fri Jan 31 14:54:34 2020
+Tue Feb 11 14:57:48 2020

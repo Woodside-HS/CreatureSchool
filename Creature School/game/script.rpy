@@ -62,6 +62,10 @@ screen control():
         yalign 2
         textbutton "Stats" action If(renpy.get_screen("stat_box"), Hide("stat_box"), Show("stat_box"))
 
+    frame:
+        vbox xalign 0.5 yalign 0.5:
+            imagebutton auto phone action If(renpy.get_screen("phone"), Hide("phone"), Show("phone"))
+
 #This is your stat_box Screen
 screen stat_box():
     frame:
@@ -75,6 +79,12 @@ screen stat_box():
             text "Writing: [writing]"
             text "Strength: [strength]"
 
+#phone
+screen phone():
+    frame:
+        align (0.5,0.5)
+    vbox:
+        text "Lea's Number"
 # The game starts here.
 
 label start:
@@ -381,6 +391,7 @@ label start:
     player "{i}Before I knew it, the sky got darker and I had gotten very sleepy.{/i}"
 
     show screen control()
+
 
     scene dorm_day
 

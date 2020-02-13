@@ -6,14 +6,13 @@
 define narrator = Character("...")
 define player = Character("[pfn]")
 define lea = Character("Léa")
+define doe = Character("Ms. Doeman")
 
 #character images
 
 image lea_def = "lea_default.png"
 image lea_hap = "lea_happy.png"
-
-#button images
-image phone = "phone.png"
+image doe_def = "ms.doeman.png"
 
 #pronouns
 #sfc = subject form with capital at beginning (She, He, They)
@@ -34,6 +33,7 @@ image dorm_night_on = "dorm_n_lon.png"
 image dorm_night_off = "dorm_n_loff.png"
 image wp = "walking_path.png"
 image sde = "starry_dead_end.png"
+image class_welc = "classroom_welc.png"
 
 #money and skills
 default money = 400
@@ -62,10 +62,6 @@ screen control():
         yalign 2
         textbutton "Stats" action If(renpy.get_screen("stat_box"), Hide("stat_box"), Show("stat_box"))
 
-    frame:
-        vbox xalign 0.5 yalign 0.5:
-            imagebutton auto phone action If(renpy.get_screen("phone"), Hide("phone"), Show("phone"))
-
 #This is your stat_box Screen
 screen stat_box():
     frame:
@@ -81,10 +77,13 @@ screen stat_box():
 
 #phone
 screen phone():
-    frame:
-        align (0.5,0.5)
-    vbox:
-        text "Lea's Number"
+    imagebutton:
+        idle "phone.png"
+        hover "phone.png"
+        xpos 100 ypos 100
+        action Jump("test")
+
+
 # The game starts here.
 
 label start:
@@ -392,10 +391,40 @@ label start:
 
     show screen control()
 
+    #show screen phone()
 
     scene dorm_day
 
     narrator "{i}First day of school - Monday.{/i}"
+
+    player "{i}I looked at the clock, and realized I had five minutes before my first class started! I didn't want to be late so I got dressed quickly and left the building without eating anything.{/i}"
+
+    scene class_welc
+
+    player "{i}I managed to get to class and sit down in the one empty seat in the front row in the nick of time{/i}."
+
+    show doe_def
+
+    doe "Welcome to Creature Literature I! I'm Ms. Doe and my favorite book is {i}Human-Half{/i} by Giras Meese."
+
+    doe "Let's introduce ourselves, shall we? State your name, pronouns, and favorite book. You there are going to start."
+
+    player "{i}She points to me.{/i}"
+
+    menu:
+        "{i}What's my favorite book?{/i}"
+
+        "{i}Bake with Me{/i} - a book full of recipes and ideas for baking at home.":
+            $ fb = "{i}Bake with Me{/i}"
+
+        "{i}2 Strangers, 1 Heart{/i} - a kinda cheesy, kinda trashy romance novel.":
+            $ fb = "{i}2 Strangers, 1 Heart{/i}"
+
+        "{i}Shut Down{/i} - a very tragic sci-fi novel.":
+            $ fb = "{i}Shut Down{/i}"
+
+    player "Oh, um. Hi, I'm [pfn]. My pronouns are [sfc]/[of]."
+
 
     # This ends the game.
 

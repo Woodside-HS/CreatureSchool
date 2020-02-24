@@ -7,12 +7,15 @@ define narrator = Character("...")
 define player = Character("[pfn]")
 define lea = Character("Léa")
 define doe = Character("Ms. Doeman")
+define ire = Character("Irene")
 
 #character images
 
 image lea_def = "lea_default.png"
 image lea_hap = "lea_happy.png"
 image doe_def = "ms.doeman.png"
+image ire_def = "irene_def.png"
+image ire_sigh = "irene_sigh.png"
 
 #pronouns
 #sfc = subject form with capital at beginning (She, He, They)
@@ -405,7 +408,21 @@ label start:
 
     show doe_def
 
-    doe "Welcome to Creature Literature I! I'm Ms. Doe and my favorite book is {i}Human-Half{/i} by Giras Meese."
+    doe "Welcome to Creature Literature I! I'm Ms. Doeman and my favorite book is {i}Human-Half{/i} by Giras Meese."
+
+    player "{i}She makes no haste lecturing us away about her expectations of us and what we are expected to accomplish this school year.{/i}"
+
+    player "{i}She hands leisurely passes out the class syllabus, all the while still speaking to us.{/i}"
+
+    player "{i}In perfect sync, Ms. Doeman said her last word just as she handed the last piece of sheet to the student right next to the window in the very back.{/i}"
+
+    hide doe_def
+    show ire_sigh
+
+    player "{i}She sighed, seeming unhappy to be in class to say the least.{/i}"
+
+    hide ire_sigh
+    show doe_def
 
     doe "Let's introduce ourselves, shall we? State your name, pronouns, and favorite book. You there are going to start."
 
@@ -425,6 +442,42 @@ label start:
 
     player "Oh, um. Hi, I'm [pfn]. My pronouns are [sfc]/[of]."
 
+    player "And [fb] is my favorite book."
+
+    doe "Thank you, [pfn]. And welcome to the class! The student next to [pfn], it's your turn!"
+
+    player "{i}Just about every student went around introudcing themselves. Then it was that student in the back's turn.{/i}"
+
+    hide doe_def
+    show ire_def
+
+    player "{i}She was looking out of the window, not paying any mind to what was going on at all.{/i}"
+
+    hide ire_def
+    show doe_def
+
+    doe "Hello? Are you there? Please introduce yourself!"
+
+    hide doe_def
+    show ire_def
+
+    ire "..."
+
+    hide ire_def
+    show ire_sigh
+
+    player "She sighed once more. Reluctantly giving in to unethustiastically respond."
+
+    ire "Irene. She/her. Don't have a favorite book."
+
+    hide ire_sigh
+    show doe_def
+
+    player "{i}Ms. Doeman stared blankly at Irene for a moment, probably a little taken aback at her response so laced with upset as compared to the other students.{/i}"
+
+    player "{i}She looked at the clock across the room. It read as 10:59.{/i}"
+
+    doe "Well, we got to everyone! That's all for today, I'll see you again on Wednesday. I hope the rest of your classes go well!"
 
     # This ends the game.
 

@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 76: expected statement.
-    imagebutton:
-               ^
+File "game/script.rpy", line 510: indentation mismatch.
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu Feb 13 13:15:20 2020
+Wed Feb 26 13:57:06 2020

@@ -37,6 +37,9 @@ image dorm_night_off = "dorm_n_loff.png"
 image wp = "walking_path.png"
 image sde = "starry_dead_end.png"
 image class_welc = "classroom_welc.png"
+image classroom = "classroom.png"
+image kitch = "kitchen.png"
+image lt_pizza = "lt_pizza.png"
 
 #money and skills
 default money = 400
@@ -57,6 +60,9 @@ default irene_num = False
 
 #special booleans
 default beento_sde = False
+
+#days
+default days = ["Monday", "Tuesday", "Wednesday", "Friday", "Saturday", "Sunday"]
 
 #This is your control screen that will allow you to show/hide the stat screen
 screen control():
@@ -394,8 +400,6 @@ label start:
 
     show screen control()
 
-    #show screen phone()
-
     scene dorm_day
 
     narrator "{i}First day of school - Monday.{/i}"
@@ -478,6 +482,41 @@ label start:
     player "{i}She looked at the clock across the room. It read as 10:59.{/i}"
 
     doe "Well, we got to everyone! That's all for today, I'll see you again on Wednesday. I hope the rest of your classes go well!"
+
+    menu:
+        "{i}It's lunch time (a pretty early lunch time too), what should I do?{/i}"
+
+        "Buy lunch from the cafeteria. {i}This action will cost $10{/i}":
+            scene lt_pizza
+            player "{i}On Mondays, we recieve pizza for lunch{/i}."
+            player "{i}It was very delicious!{/i}."
+            jump afternoon_class
+
+        "Cook something in the dorm building kitchen.":
+            scene kitch
+
+    label to_cook:
+        menu:
+            "{i}What shall I cook?{/i}"
+
+            "Make instant ramen":
+                player "{i}I boiled a couple of cups of water then plopped the noodles in.{/i}"
+                player "{i}Once they were done, I poured everything into a bowl.{/i}"
+                player "{i}It was pretty tasty.{/i}"
+                $cooking += 1
+                narrator "{i}You increased your cooking skill!{/i}"
+
+            "Make spaghetti and meatballs" if $cooking == 3:
+                    player "{i}I laid out all the ingredients I found from the various cupbords and set to work.{/i}"
+                    player "{i}The result was a delicious and nutritious bunch of noodles topped with rich marinara sauce and savory meatballs.{/i}"
+                    $cooking += 2
+                    narrator "{i}You increased your cooking skill!{/i}"
+
+    label afternoon_class:
+        player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
+        scene classroom
+        player "{i}Class went on as class usually does.{/i}"
+
 
     # This ends the game.
 

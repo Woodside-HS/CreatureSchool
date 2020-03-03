@@ -2,7 +2,57 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 510: indentation mismatch.
+File "game/script.rpy", line 524: expected statement.
+    "Get cereal with milk":
+                          ^
+
+File "game/script.rpy", line 585: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    $writing += 1
+    ^
+
+File "game/script.rpy", line 589: expected statement.
+    "Draw something":
+                    ^
+
+File "game/script.rpy", line 595: expected statement.
+    "Play a computer game.":
+                           ^
+
+File "game/script.rpy", line 600: expected statement.
+    "Text Léa.":
+               ^
+
+File "game/script.rpy", line 631: expected menuitem
+    scene kitch
+    ^
+
+File "game/script.rpy", line 677: reached end of line when expecting ':'.
+    if found_site = True;
+                         ^
+
+File "game/script.rpy", line 681: expected menuitem
+    $poems_published += 1
+    ^
+
+File "game/script.rpy", line 710: reached end of line when expecting ':'.
+    if found_site = True;
+                         ^
+
+File "game/script.rpy", line 714: expected menuitem
+    $ss_published += 1
+    ^
+
+File "game/script.rpy", line 745: reached end of line when expecting ':'.
+    if found_site = True;
+                         ^
+
+File "game/script.rpy", line 749: expected menuitem
+    $art_published += 1
+    ^
+
+File "game/script.rpy", line 765: Say menuitems and captions may not exist in the same menu.
+    player "{i}It was time to head to class.{/i}"
+                                                 ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Wed Feb 26 13:57:06 2020
+Tue Mar 03 15:02:32 2020

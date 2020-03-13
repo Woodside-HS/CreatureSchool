@@ -79,11 +79,17 @@ default time = "morning"
 default day = "Monday"
 
 #This is your control screen that will allow you to show/hide the stat screen
-screen control():
+screen control_stats():
     frame:
         xalign 0.95
         yalign 2
         textbutton "Stats" action If(renpy.get_screen("stat_box"), Hide("stat_box"), Show("stat_box"))
+
+#Shows day of the week
+screen day():
+    frame:
+        align(0.8,2)
+        textbutton "[day]"
 
 #This is your stat_box Screen
 screen stat_box():
@@ -226,7 +232,7 @@ label start:
 
     scene schoolsign
 
-    narrator "{i}A week before school starts.{/i}"
+    narrator "{i}A little while before school started.{/i}"
 
     show lea_def
 
@@ -417,7 +423,9 @@ label start:
 
     player "{i}Before I knew it, the sky got darker and I had gotten very sleepy.{/i}"
 
-    show screen control()
+    show screen control_stats()
+
+    show screen day()
 
     scene dorm_day
 
@@ -547,7 +555,7 @@ label start:
             $cooking += 2
             narrator "{i}You increased your cooking skill!{/i}"
 
-
+label afternoon_class:
     player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
     scene classroom
     player "{i}They went on as classes usually do.{/i}"
@@ -934,7 +942,7 @@ label Monday:
     player "{i}Class went on as classes usually do.{/i}"
 
     menu:
-        "{i}It's lunch time (a pretty early lunch time too), what should I do?{/i}"
+        "{i}It's lunch time, what should I do?{/i}"
 
         "Buy lunch from the cafeteria. {i}This action will cost $10{/i}":
             menu:
@@ -951,7 +959,7 @@ label Monday:
                     player "{i}I didn't have much else to say other than that the soup was very tasty!{/i}"
 
             $money -= 10
-            jump afternoon_class
+            jump afternoon_class_monday
 
         "Cook something in the dorm building kitchen.":
             scene kitch
@@ -979,6 +987,11 @@ label Monday:
             narrator "{i}You increased your cooking skill!{/i}"
 
 
+    player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
+    scene classroom
+    player "{i}They went on as classes usually do.{/i}"
+
+label afternoon_class_monday:
     player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
     scene classroom
     player "{i}They went on as classes usually do.{/i}"
@@ -1360,7 +1373,7 @@ label Tuesday:
     player "{i}Class went on as classes usually do.{/i}"
 
     menu:
-        "{i}It's lunch time (a pretty early lunch time too), what should I do?{/i}"
+        "{i}It's lunch time, what should I do?{/i}"
 
         "Buy lunch from the cafeteria. {i}This action will cost $10{/i}":
             menu:
@@ -1377,7 +1390,7 @@ label Tuesday:
                     player "{i}I didn't have much else to say other than that the soup was very tasty!{/i}"
 
             $money -= 10
-            jump afternoon_class
+            jump afternoon_class_tuesday
 
         "Cook something in the dorm building kitchen.":
             scene kitch
@@ -1405,6 +1418,11 @@ label Tuesday:
             narrator "{i}You increased your cooking skill!{/i}"
 
 
+    player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
+    scene classroom
+    player "{i}They went on as classes usually do.{/i}"
+
+label afternoon_class_tuesday:
     player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
     scene classroom
     player "{i}They went on as classes usually do.{/i}"
@@ -1786,7 +1804,7 @@ label Wednesday:
     player "{i}Class went on as classes usually do.{/i}"
 
     menu:
-        "{i}It's lunch time (a pretty early lunch time too), what should I do?{/i}"
+        "{i}It's lunch time, what should I do?{/i}"
 
         "Buy lunch from the cafeteria. {i}This action will cost $10{/i}":
             menu:
@@ -1803,7 +1821,7 @@ label Wednesday:
                     player "{i}I didn't have much else to say other than that the soup was very tasty!{/i}"
 
             $money -= 10
-            jump afternoon_class
+            jump afternoon_class_wednesday
 
         "Cook something in the dorm building kitchen.":
             scene kitch
@@ -1831,6 +1849,11 @@ label Wednesday:
             narrator "{i}You increased your cooking skill!{/i}"
 
 
+    player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
+    scene classroom
+    player "{i}They went on as classes usually do.{/i}"
+
+label afternoon_class_wednesday:
     player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
     scene classroom
     player "{i}They went on as classes usually do.{/i}"
@@ -2212,7 +2235,7 @@ label Thursday:
     player "{i}Class went on as classes usually do.{/i}"
 
     menu:
-        "{i}It's lunch time (a pretty early lunch time too), what should I do?{/i}"
+        "{i}It's lunch time, what should I do?{/i}"
 
         "Buy lunch from the cafeteria. {i}This action will cost $10{/i}":
             menu:
@@ -2229,7 +2252,7 @@ label Thursday:
                     player "{i}I didn't have much else to say other than that the soup was very tasty!{/i}"
 
             $money -= 10
-            jump afternoon_class
+            jump afternoon_class_thursday
 
         "Cook something in the dorm building kitchen.":
             scene kitch
@@ -2257,6 +2280,11 @@ label Thursday:
             narrator "{i}You increased your cooking skill!{/i}"
 
 
+    player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
+    scene classroom
+    player "{i}They went on as classes usually do.{/i}"
+
+label afternoon_class_thursday:
     player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
     scene classroom
     player "{i}They went on as classes usually do.{/i}"
@@ -2638,7 +2666,7 @@ label Friday:
     player "{i}Class went on as classes usually do.{/i}"
 
     menu:
-        "{i}It's lunch time (a pretty early lunch time too), what should I do?{/i}"
+        "{i}It's lunch time, what should I do?{/i}"
 
         "Buy lunch from the cafeteria. {i}This action will cost $10{/i}":
             menu:
@@ -2655,7 +2683,7 @@ label Friday:
                     player "{i}I didn't have much else to say other than that the soup was very tasty!{/i}"
 
             $money -= 10
-            jump afternoon_class
+            jump afternoon_class_friday
 
         "Cook something in the dorm building kitchen.":
             scene kitch
@@ -2683,6 +2711,11 @@ label Friday:
             narrator "{i}You increased your cooking skill!{/i}"
 
 
+    player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
+    scene classroom
+    player "{i}They went on as classes usually do.{/i}"
+
+label afternoon_class_friday:
     player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
     scene classroom
     player "{i}They went on as classes usually do.{/i}"
@@ -2888,8 +2921,854 @@ label evening_activity_friday:
     player "{i}Before I knew it, the sky got darker and I had gotten very sleepy.{/i}"
 
 ### Saturday
+label Saturday:
+    $ day = "Saturday"
+    scene dorm_day
+
+    menu:
+        "{i}Should I wake up now or sleep some more?{/i}"
+
+        "Wake up":
+            menu:
+                "{i}What should I do?{/i}"
+
+                "Cook":
+                    scene kitch
+                    menu:
+                        "{i}What shall I cook?{/i}"
+
+                        "Make instant ramen":
+                            player "{i}I boiled a couple of cups of water then plopped the noodles in.{/i}"
+                            player "{i}Once they were done, I poured everything into a bowl.{/i}"
+                            player "{i}It was pretty tasty.{/i}"
+                            $cooking += 1
+                            narrator "{i}You increased your cooking skill!{/i}"
+
+                        "Get cereal with milk":
+                            player "{i}The task of getting cereal and pouring milk on it was easy.{/i}"
+                            player "{i}This made my breakfast quick and easy.{/i}"
+                            narrator "{i}You did not increase your cooking skill.{/i}"
+
+                        "Make spaghetti and meatballs" if cooking >= 1:
+                            player "{i}I laid out all the ingredients I found from the various cupbords and set to work.{/i}"
+                            player "{i}The result was a delicious and nutritious bunch of noodles topped with rich marinara sauce and savory meatballs.{/i}"
+                            $cooking += 2
+                            narrator "{i}You increased your cooking skill!{/i}"
+
+                "Buy breakfast from the cafeteria {i}(This action will cost $5){/i}":
+                    menu:
+                        "{i}What should I get?{/i}"
+
+                        "Cereal with milk":
+                            scene lt_cereal
+                            player "{i}I decided to buy a cereal bowl with milk in it.{/i}"
+                            player "{i}It's high quality so it tastes a lot better than your generic boxed-cereal!{/i}"
+
+                        "Egg on Toast":
+                            scene lt_toast
+                            player "{i}Egg on toast, today!{/i}"
+                            player "{i}It was a really nice dish, the egg and the bread mixed really well together.{/i}"
+                    $money -= 5
+
+
+
+                "Write a poem":
+                    player "{i}I brought out all of my writing supplies and pondered what I should write about.{/i}"
+                    player "{i}Soon after, the idea came into mind and I started writing away.{/i}"
+
+                    if writing == 0:
+                            player "{i}I'm not sure what to make of this poem but I couldn't unwrite now, could I? I had fun during the process which was I guess what always mattered most.{/i}"
+
+                    if writing == 1:
+                            player "{i}This poem was pretty fun to write. It didn't turn out too bad I don't think.{/i}"
+
+                    if writing == 2:
+                            player "{i}My writing has been progressing and those efforts were reflected in my poem. Maybe I could be a published writer one day.{/i}"
+
+                    else:
+                        player "{i}This poem was pleasing to read and the sentences were rhymatic and flowed really well.{/i}"
+                        menu:
+                            "Publish it?"
+
+                            "Yes":
+                                if found_site = False:
+                                    player "{i}A quick internet search led me to a website where I could publish my work{/i}"
+                                    player "{i}and if I connected my Art is Working account to this site, then I would be recieving weekly paymet depending on how many viewers read my stuff.{/i}"
+                                    $found_site = True
+
+
+                                if found_site = True:
+                                    player "{i}I logged onto the publishing site.{/i}"
+                                    player "{i}I uploaded my writing onto the site and with the press of a couple of buttons, my poem was out there, ready for the world to see.{/i}"
+
+                                $poems_published += 1
+
+                            "No":
+                                player "{i}Eh. I wasn't sure I was ready for the world to see my work yet.{/i}"
+
+                    $poems_written += 1
+                    $writing +=1
+                    narrator "{i}You increased your writing skill.{/i}"
+
+                "Write a short story":
+                    player "{i}I brought out all of my writing supplies and pondered what I should write about.{/i}"
+                    player "{i}Soon after, the idea came into mind and I started writing away.{/i}"
+
+                    if writing == 0:
+                        player "{i}I'm not sure what to make of this little story but I couldn't unwrite now, could I? I had fun during the process which was I guess what always mattered most.{/i}"
+
+                    if writing == 1:
+                        player "{i}This story was pretty fun to write. It didn't turn out too bad I don't think.{/i}"
+
+                    if writing == 2:
+                        player "{i}My writing has been progressing and those efforts were reflected in my short story. Maybe I could be a published writer one day.{/i}"
+
+                    else:
+                        player "{i}This poem was pleasing to read and the sentences were rhymatic and flowed really well.{/i}"
+                        menu:
+                            "Publish it?"
+
+                            "Yes":
+                                if found_site = False:
+                                    player "{i}A quick internet search led me to a website where I could publish my work{/i}"
+                                    player "{i}and if I connected my Art is Working account to this site, then I would be recieving weekly paymet depending on how many viewers read my stuff.{/i}"
+                                    $found_site = True
+
+
+                                if found_site = True:
+                                    player "{i}I logged onto the publishing site.{/i}"
+                                    player "{i}I uploaded my writing onto the site and with the press of a couple of buttons, my short story was out there, ready for the world to see.{/i}"
+
+                                    $ss_published += 1
+
+                            "No":
+                                player "{i}Eh. I wasn't sure I was ready for the world to see my work yet.{/i}"
+                    $ss_written += 1
+                    $writing +=1
+                    narrator "{i}You increased your writing skill.{/i}"
+
+                "Draw something":
+                    player "{i}I got all my art tools out and started drawing. After what seemed to be hours, I'm finally finished with my latest piece. Whew!{/i}"
+
+                    if art == 0:
+                        player "{i}The drawing itself may have not been that great, but that didn't really matter because I had fun.{/i}"
+
+                    if art == 1:
+                        player "{i}This was all right.{/i}"
+
+                    if art == 2:
+                        player "{i}It seemed as thougth every time I picked up the canvas, I got better.{/i}"
+
+                    else:
+                        player "{i}This was a delight to look at and I found it very meaningful.{/i}"
+                        menu:
+                            "Publish it?"
+
+                            "Yes":
+                                if found_site = False:
+                                    player "{i}A quick internet search led me to a website where I could publish my work{/i}"
+                                    player "{i}and if I connected my Art is Working account to this site, then I would be recieving weekly paymet depending on how many viewers looked at my stuff.{/i}"
+                                    $found_site = True
+
+
+                                if found_site = True:
+                                    player "{i}I logged onto the publishing site.{/i}"
+                                    player "{i}I uploaded my piece onto the site and with the press of a couple of buttons, my art was out there, ready for the world to see.{/i}"
+
+                                    $art_published += 1
+
+                            "No":
+                                player "{i}Eh. I wasn't sure I was ready for the world to see my work yet.{/i}"
+                    $art_made += 1
+                    $art += 1
+                    narrator "{i}You increased your art skill!{/i}"
+
+                "Play a computer game.":
+                    player "{i}I booted up my computer and the game of my choice. The moment I clicked the play button, everything else was a blur, kind of."
+                    $gaming += 1
+                    narrator "{i}You increased your gaming skill!{/i}"
+
+        "Sleep some more":
+            player "{i}I decided that it wasn't time for me to get up quite yet so I slept for probably another hour or so before finally waking up and getting out of bed.{/i}"
+
+    player "{i}It was time to do some homework.{/i}"
+    player "{i}I did what I could.{/i}"
+
+    menu:
+        "{i}It's lunch time, what should I do?{/i}"
+
+        "Buy lunch from the cafeteria. {i}This action will cost $10{/i}":
+            menu:
+                "{i}What should I get?{/i}"
+
+                "Pizza":
+                    scene lt_pizza
+                    player "{i}I decided to buy a slice of pizza and it came with a drink.{/i}"
+                    player "{i}To be honest, it was pretty delicious!{/i}"
+
+                "Miso soup":
+                    scene lt_miso
+                    player "{i}Today, it was miso soup for me!{/i}"
+                    player "{i}I didn't have much else to say other than that the soup was very tasty!{/i}"
+
+            $money -= 10
+            jump afternoon_saturday
+
+        "Cook something in the dorm building kitchen.":
+            scene kitch
+
+
+    menu:
+        "{i}What shall I cook?{/i}"
+
+        "Make instant ramen":
+            player "{i}I boiled a couple of cups of water then plopped the noodles in.{/i}"
+            player "{i}Once they were done, I poured everything into a bowl.{/i}"
+            player "{i}It was pretty tasty.{/i}"
+            $cooking += 1
+            narrator "{i}You increased your cooking skill!{/i}"
+
+        "Get cereal with milk":
+            player "{i}The task of getting cereal and pouring milk on it was easy.{/i}"
+            player "{i}This made my breakfast quick and easy.{/i}"
+            narrator "{i}You did not increase your cooking skill.{/i}"
+
+        "Make spaghetti and meatballs" if cooking >= 1:
+            player "{i}I laid out all the ingredients I found from the various cupbords and set to work.{/i}"
+            player "{i}The result was a delicious and nutritious bunch of noodles topped with rich marinara sauce and savory meatballs.{/i}"
+            $cooking += 2
+            narrator "{i}You increased your cooking skill!{/i}"
+
+label afternoon_saturday:
+    player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
+    scene classroom
+    player "{i}They went on as classes usually do.{/i}"
+
+label to_do_saturday:
+    menu:
+        "{i}What shall I do?{/i}"
+
+        "Go for a run.":
+            player "{i}I decided to jog a bit around campus.{/i}"
+            scene wp
+            player "{i}Running around at my own pace has felt fantastic and I couldn't be gladder to get the exercise.{/i}"
+            player "{i}On my way back from the library to the dorms, I came across a curious split in the path.{/i}"
+
+            menu:
+                "{i}Do I go back to my dorm or go down this path?{/i}"
+
+                "Go back to the dorms":
+                    player "{i}I decided that I've had enough walking around for today, so I headed back to my room.{/i}"
+                    $strength += 2
+                    narrator "{i}You increased your strength skill!{/i}"
+
+                "Take the other path" if beento_sde == False:
+                    player "{i}I was feeling adventurous, so I thought taking this unfamilar path was a good idea.{/i}"
+                    scene sde
+                    player "{i}After what seemed to be a long walk on a flat, level path, I came across a hill.{/i}"
+                    player "{i}The path still goes over this hill so I continued walking.{/i}"
+                    player "{i}To my surprise, the path stopped on the very top of the hill.{/i}"
+                    player "{i}However, I looked up and saw that the skies were clearer than I've ever seen before.{/i}"
+                    player "{i}Any star-gazer would be really happy to find this place.{/i}"
+                    player "{i}Realizing how dark it had gotten, I turned around to head back to my dorm.{/i}"
+                    $beento_sde = True
+                    $strength += 5
+
+                "Go up to the hill again" if beento_sde == True:
+                    player "{i}I could feel that mountain where I could see thousands of stars clearly call to me.{/i}"
+                    player "{i}So I just had to go.{/i}"
+                    scene sde
+                    player "{i}I walked up to the hill's peak, taking in the gorgeous scene on the night sky.{/i}"
+                    player "{i}After some time, I headed back to my dorm.{/i}"
+                    $strength += 5
+
+        "Read a cookbook.":
+            scene dorm_day
+            player "{i}I spent a few hours looking through a variety of different recipes. Maybe I should try making all of these sooner or later."
+            $cooking += 1
+            narrator "{i}You increased your cooking skill!{/i}"
+
+        "Write a short story.":
+            scene dorm_day
+            player "{i}I pulled out all my writing materials and got busy writing a short story. I don't know whether it turned out okay or not but that was fun!{/i}"
+            $writing += 1
+            $ss_written += 1
+            narrator "{i}You increased your writing skill!{/i}"
+
+        "Draw something":
+            scene dorm_day
+            player "{i}I got all my art tools out and started drawing. After what seemed to be hours, I'm finally finished with my latest piece. Whew!{/i}"
+            $art += 1
+            $art_made += 1
+            narrator "{i}You increased your art skill!{/i}"
+
+        "Play a computer game.":
+            scene dorm_day
+            player "{i}I booted up my computer and the game of my choice. The moment I clicked the play button, everything else was a blur, kind of."
+            $gaming += 1
+            narrator "{i}You increased your gaming skill!{/i}"
+
+        "Text Léa." if texted_lea == False:
+            show phone
+            if lea_lev == 1:
+                player "{i}I had her number so I thought to shoot her a quick text greeting her and letting her know it was me.{/i}"
+                lea "Hi!"
+                player "{i}Wow, that was fast!{/i}"
+                lea "If you're still down to go shopping with me, let's meet up after class on Friday?"
+                lea "Take your time to decide!"
+                $texted_lea = True
+                jump to_do_saturday
+
+    player "{i}Dinner time was approaching.{/i}"
+    menu:
+        "{i}What shall I do for dinner?{/i}"
+
+        "Buy dinner from the cafeteria. {i}This action will cost $10{/i}":
+            menu:
+                "{i}What should I get?{/i}"
+
+                "Pizza":
+                    scene lt_pizza
+                    player "{i}I decided to buy a slice of pizza and it came with a drink.{/i}"
+                    player "{i}To be honest, it was pretty delicious!{/i}"
+
+                "Miso soup":
+                    scene lt_miso
+                    player "{i}Today, it was miso soup for me!{/i}"
+                    player "{i}I didn't have much else to say other than that the soup was very tasty!{/i}"
+
+            $money -= 10
+            jump evening_activity_saturday
+
+        "Cook something in the dorm building kitchen.":
+            scene kitch
+
+
+    menu:
+        "{i}What shall I cook?{/i}"
+
+        "Make instant ramen":
+            player "{i}I boiled a couple of cups of water then plopped the noodles in.{/i}"
+            player "{i}Once they were done, I poured everything into a bowl.{/i}"
+            player "{i}It was pretty tasty.{/i}"
+            $cooking += 1
+            narrator "{i}You increased your cooking skill!{/i}"
+
+        "Get cereal with milk":
+            player "{i}The task of getting cereal and pouring milk on it was easy.{/i}"
+            player "{i}This made my breakfast quick and easy.{/i}"
+            narrator "{i}You did not increase your cooking skill.{/i}"
+
+        "Make spaghetti and meatballs" if cooking >= 1:
+            player "{i}I laid out all the ingredients I found from the various cupbords and set to work.{/i}"
+            player "{i}The result was a delicious and nutritious bunch of noodles topped with rich marinara sauce and savory meatballs.{/i}"
+            $cooking += 2
+            narrator "{i}You increased your cooking skill!{/i}"
+
+label evening_activity_saturday:
+    menu:
+        "{i}What shall I do?{/i}"
+
+        "Go for a run.":
+            player "{i}I decided to jog a bit around campus.{/i}"
+            scene wp
+            player "{i}Running around at my own pace has felt fantastic and I couldn't be gladder to get the exercise.{/i}"
+            player "{i}On my way back from the library to the dorms, I came across a curious split in the path.{/i}"
+
+            menu:
+                "{i}Do I go back to my dorm or go down this path?{/i}"
+
+                "Go back to the dorms":
+                    player "{i}I decided that I've had enough walking around for today, so I headed back to my room.{/i}"
+                    $strength += 2
+                    narrator "{i}You increased your strength skill!{/i}"
+
+                "Take the other path" if beento_sde == False:
+                    player "{i}I was feeling adventurous, so I thought taking this unfamilar path was a good idea.{/i}"
+                    scene sde
+                    player "{i}After what seemed to be a long walk on a flat, level path, I came across a hill.{/i}"
+                    player "{i}The path still goes over this hill so I continued walking.{/i}"
+                    player "{i}To my surprise, the path stopped on the very top of the hill.{/i}"
+                    player "{i}However, I looked up and saw that the skies were clearer than I've ever seen before.{/i}"
+                    player "{i}Any star-gazer would be really happy to find this place.{/i}"
+                    player "{i}Realizing how dark it had gotten, I turned around to head back to my dorm.{/i}"
+                    $beento_sde = True
+                    $strength += 5
+
+                "Go up to the hill again" if beento_sde == True:
+                    player "{i}I could feel that mountain where I could see thousands of stars clearly call to me.{/i}"
+                    player "{i}So I just had to go.{/i}"
+                    scene sde
+                    player "{i}I walked up to the hill's peak, taking in the gorgeous scene on the night sky.{/i}"
+                    player "{i}After some time, I headed back to my dorm.{/i}"
+                    $strength += 5
+
+        "Read a cookbook.":
+            scene dorm_day
+            player "{i}I spent a few hours looking through a variety of different recipes. Maybe I should try making all of these sooner or later."
+            $cooking += 1
+            narrator "{i}You increased your cooking skill!{/i}"
+
+        "Write a short story.":
+            scene dorm_day
+            player "{i}I pulled out all my writing materials and got busy writing a short story. I don't know whether it turned out okay or not but that was fun!{/i}"
+            $writing += 1
+            $ss_written += 1
+            narrator "{i}You increased your writing skill!{/i}"
+
+        "Draw something":
+            scene dorm_day
+            player "{i}I got all my art tools out and started drawing. After what seemed to be hours, I'm finally finished with my latest piece. Whew!{/i}"
+            $art += 1
+            $art_made += 1
+            narrator "{i}You increased your art skill!{/i}"
+
+        "Play a computer game.":
+            scene dorm_day
+            player "{i}I booted up my computer and the game of my choice. The moment I clicked the play button, everything else was a blur, kind of."
+            $gaming += 1
+            narrator "{i}You increased your gaming skill!{/i}"
+
+        "Text Léa." if texted_lea == False:
+            show phone
+            if lea_lev == 1:
+                player "{i}I had her number so I thought to shoot her a quick text greeting her and letting her know it was me.{/i}"
+                lea "Hi!"
+                player "{i}Wow, that was fast!{/i}"
+                lea "If you're still down to go shopping with me, let's meet up after class on Friday?"
+                lea "Take your time to decide!"
+                $texted_lea = True
+
+
+    scene dorm_night_off
+
+    player "{i}Before I knew it, the sky got darker and I had gotten very sleepy.{/i}"
 
 ### Sunday
+label Sunday:
+    $ day = "Sunday"
+    scene dorm_day
+
+    menu:
+        "{i}Should I wake up now or sleep some more?{/i}"
+
+        "Wake up":
+            menu:
+                "{i}What should I do?{/i}"
+
+                "Cook":
+                    scene kitch
+                    menu:
+                        "{i}What shall I cook?{/i}"
+
+                        "Make instant ramen":
+                            player "{i}I boiled a couple of cups of water then plopped the noodles in.{/i}"
+                            player "{i}Once they were done, I poured everything into a bowl.{/i}"
+                            player "{i}It was pretty tasty.{/i}"
+                            $cooking += 1
+                            narrator "{i}You increased your cooking skill!{/i}"
+
+                        "Get cereal with milk":
+                            player "{i}The task of getting cereal and pouring milk on it was easy.{/i}"
+                            player "{i}This made my breakfast quick and easy.{/i}"
+                            narrator "{i}You did not increase your cooking skill.{/i}"
+
+                        "Make spaghetti and meatballs" if cooking >= 1:
+                            player "{i}I laid out all the ingredients I found from the various cupbords and set to work.{/i}"
+                            player "{i}The result was a delicious and nutritious bunch of noodles topped with rich marinara sauce and savory meatballs.{/i}"
+                            $cooking += 2
+                            narrator "{i}You increased your cooking skill!{/i}"
+
+                "Buy breakfast from the cafeteria {i}(This action will cost $5){/i}":
+                    menu:
+                        "{i}What should I get?{/i}"
+
+                        "Cereal with milk":
+                            scene lt_cereal
+                            player "{i}I decided to buy a cereal bowl with milk in it.{/i}"
+                            player "{i}It's high quality so it tastes a lot better than your generic boxed-cereal!{/i}"
+
+                        "Egg on Toast":
+                            scene lt_toast
+                            player "{i}Egg on toast, today!{/i}"
+                            player "{i}It was a really nice dish, the egg and the bread mixed really well together.{/i}"
+                    $money -= 5
+
+
+
+                "Write a poem":
+                    player "{i}I brought out all of my writing supplies and pondered what I should write about.{/i}"
+                    player "{i}Soon after, the idea came into mind and I started writing away.{/i}"
+
+                    if writing == 0:
+                            player "{i}I'm not sure what to make of this poem but I couldn't unwrite now, could I? I had fun during the process which was I guess what always mattered most.{/i}"
+
+                    if writing == 1:
+                            player "{i}This poem was pretty fun to write. It didn't turn out too bad I don't think.{/i}"
+
+                    if writing == 2:
+                            player "{i}My writing has been progressing and those efforts were reflected in my poem. Maybe I could be a published writer one day.{/i}"
+
+                    else:
+                        player "{i}This poem was pleasing to read and the sentences were rhymatic and flowed really well.{/i}"
+                        menu:
+                            "Publish it?"
+
+                            "Yes":
+                                if found_site = False:
+                                    player "{i}A quick internet search led me to a website where I could publish my work{/i}"
+                                    player "{i}and if I connected my Art is Working account to this site, then I would be recieving weekly paymet depending on how many viewers read my stuff.{/i}"
+                                    $found_site = True
+
+
+                                if found_site = True:
+                                    player "{i}I logged onto the publishing site.{/i}"
+                                    player "{i}I uploaded my writing onto the site and with the press of a couple of buttons, my poem was out there, ready for the world to see.{/i}"
+
+                                $poems_published += 1
+
+                            "No":
+                                player "{i}Eh. I wasn't sure I was ready for the world to see my work yet.{/i}"
+
+                    $poems_written += 1
+                    $writing +=1
+                    narrator "{i}You increased your writing skill.{/i}"
+
+                "Write a short story":
+                    player "{i}I brought out all of my writing supplies and pondered what I should write about.{/i}"
+                    player "{i}Soon after, the idea came into mind and I started writing away.{/i}"
+
+                    if writing == 0:
+                        player "{i}I'm not sure what to make of this little story but I couldn't unwrite now, could I? I had fun during the process which was I guess what always mattered most.{/i}"
+
+                    if writing == 1:
+                        player "{i}This story was pretty fun to write. It didn't turn out too bad I don't think.{/i}"
+
+                    if writing == 2:
+                        player "{i}My writing has been progressing and those efforts were reflected in my short story. Maybe I could be a published writer one day.{/i}"
+
+                    else:
+                        player "{i}This poem was pleasing to read and the sentences were rhymatic and flowed really well.{/i}"
+                        menu:
+                            "Publish it?"
+
+                            "Yes":
+                                if found_site = False:
+                                    player "{i}A quick internet search led me to a website where I could publish my work{/i}"
+                                    player "{i}and if I connected my Art is Working account to this site, then I would be recieving weekly paymet depending on how many viewers read my stuff.{/i}"
+                                    $found_site = True
+
+
+                                if found_site = True:
+                                    player "{i}I logged onto the publishing site.{/i}"
+                                    player "{i}I uploaded my writing onto the site and with the press of a couple of buttons, my short story was out there, ready for the world to see.{/i}"
+
+                                    $ss_published += 1
+
+                            "No":
+                                player "{i}Eh. I wasn't sure I was ready for the world to see my work yet.{/i}"
+                    $ss_written += 1
+                    $writing +=1
+                    narrator "{i}You increased your writing skill.{/i}"
+
+                "Draw something":
+                    player "{i}I got all my art tools out and started drawing. After what seemed to be hours, I'm finally finished with my latest piece. Whew!{/i}"
+
+                    if art == 0:
+                        player "{i}The drawing itself may have not been that great, but that didn't really matter because I had fun.{/i}"
+
+                    if art == 1:
+                        player "{i}This was all right.{/i}"
+
+                    if art == 2:
+                        player "{i}It seemed as thougth every time I picked up the canvas, I got better.{/i}"
+
+                    else:
+                        player "{i}This was a delight to look at and I found it very meaningful.{/i}"
+                        menu:
+                            "Publish it?"
+
+                            "Yes":
+                                if found_site = False:
+                                    player "{i}A quick internet search led me to a website where I could publish my work{/i}"
+                                    player "{i}and if I connected my Art is Working account to this site, then I would be recieving weekly paymet depending on how many viewers looked at my stuff.{/i}"
+                                    $found_site = True
+
+
+                                if found_site = True:
+                                    player "{i}I logged onto the publishing site.{/i}"
+                                    player "{i}I uploaded my piece onto the site and with the press of a couple of buttons, my art was out there, ready for the world to see.{/i}"
+
+                                    $art_published += 1
+
+                            "No":
+                                player "{i}Eh. I wasn't sure I was ready for the world to see my work yet.{/i}"
+                    $art_made += 1
+                    $art += 1
+                    narrator "{i}You increased your art skill!{/i}"
+
+                "Play a computer game.":
+                    player "{i}I booted up my computer and the game of my choice. The moment I clicked the play button, everything else was a blur, kind of."
+                    $gaming += 1
+                    narrator "{i}You increased your gaming skill!{/i}"
+
+        "Sleep some more":
+            player "{i}I decided that it wasn't time for me to get up quite yet so I slept for probably another hour or so before finally waking up and getting out of bed.{/i}"
+
+    player "{i}It was time to do some homework.{/i}"
+    player "{i}I did what I could.{/i}"
+
+    menu:
+        "{i}It's lunch time, what should I do?{/i}"
+
+        "Buy lunch from the cafeteria. {i}This action will cost $10{/i}":
+            menu:
+                "{i}What should I get?{/i}"
+
+                "Pizza":
+                    scene lt_pizza
+                    player "{i}I decided to buy a slice of pizza and it came with a drink.{/i}"
+                    player "{i}To be honest, it was pretty delicious!{/i}"
+
+                "Miso soup":
+                    scene lt_miso
+                    player "{i}Today, it was miso soup for me!{/i}"
+                    player "{i}I didn't have much else to say other than that the soup was very tasty!{/i}"
+
+            $money -= 10
+            jump afternoon_sunday
+
+        "Cook something in the dorm building kitchen.":
+            scene kitch
+
+
+    menu:
+        "{i}What shall I cook?{/i}"
+
+        "Make instant ramen":
+            player "{i}I boiled a couple of cups of water then plopped the noodles in.{/i}"
+            player "{i}Once they were done, I poured everything into a bowl.{/i}"
+            player "{i}It was pretty tasty.{/i}"
+            $cooking += 1
+            narrator "{i}You increased your cooking skill!{/i}"
+
+        "Get cereal with milk":
+            player "{i}The task of getting cereal and pouring milk on it was easy.{/i}"
+            player "{i}This made my breakfast quick and easy.{/i}"
+            narrator "{i}You did not increase your cooking skill.{/i}"
+
+        "Make spaghetti and meatballs" if cooking >= 1:
+            player "{i}I laid out all the ingredients I found from the various cupbords and set to work.{/i}"
+            player "{i}The result was a delicious and nutritious bunch of noodles topped with rich marinara sauce and savory meatballs.{/i}"
+            $cooking += 2
+            narrator "{i}You increased your cooking skill!{/i}"
+
+label afternoon_sunday:
+    player "{i}After lunch, it was time to head to my afternoon classes.{/i}"
+    scene classroom
+    player "{i}They went on as classes usually do.{/i}"
+
+label to_do_sunday:
+    menu:
+        "{i}What shall I do?{/i}"
+
+        "Go for a run.":
+            player "{i}I decided to jog a bit around campus.{/i}"
+            scene wp
+            player "{i}Running around at my own pace has felt fantastic and I couldn't be gladder to get the exercise.{/i}"
+            player "{i}On my way back from the library to the dorms, I came across a curious split in the path.{/i}"
+
+            menu:
+                "{i}Do I go back to my dorm or go down this path?{/i}"
+
+                "Go back to the dorms":
+                    player "{i}I decided that I've had enough walking around for today, so I headed back to my room.{/i}"
+                    $strength += 2
+                    narrator "{i}You increased your strength skill!{/i}"
+
+                "Take the other path" if beento_sde == False:
+                    player "{i}I was feeling adventurous, so I thought taking this unfamilar path was a good idea.{/i}"
+                    scene sde
+                    player "{i}After what seemed to be a long walk on a flat, level path, I came across a hill.{/i}"
+                    player "{i}The path still goes over this hill so I continued walking.{/i}"
+                    player "{i}To my surprise, the path stopped on the very top of the hill.{/i}"
+                    player "{i}However, I looked up and saw that the skies were clearer than I've ever seen before.{/i}"
+                    player "{i}Any star-gazer would be really happy to find this place.{/i}"
+                    player "{i}Realizing how dark it had gotten, I turned around to head back to my dorm.{/i}"
+                    $beento_sde = True
+                    $strength += 5
+
+                "Go up to the hill again" if beento_sde == True:
+                    player "{i}I could feel that mountain where I could see thousands of stars clearly call to me.{/i}"
+                    player "{i}So I just had to go.{/i}"
+                    scene sde
+                    player "{i}I walked up to the hill's peak, taking in the gorgeous scene on the night sky.{/i}"
+                    player "{i}After some time, I headed back to my dorm.{/i}"
+                    $strength += 5
+
+        "Read a cookbook.":
+            scene dorm_day
+            player "{i}I spent a few hours looking through a variety of different recipes. Maybe I should try making all of these sooner or later."
+            $cooking += 1
+            narrator "{i}You increased your cooking skill!{/i}"
+
+        "Write a short story.":
+            scene dorm_day
+            player "{i}I pulled out all my writing materials and got busy writing a short story. I don't know whether it turned out okay or not but that was fun!{/i}"
+            $writing += 1
+            $ss_written += 1
+            narrator "{i}You increased your writing skill!{/i}"
+
+        "Draw something":
+            scene dorm_day
+            player "{i}I got all my art tools out and started drawing. After what seemed to be hours, I'm finally finished with my latest piece. Whew!{/i}"
+            $art += 1
+            $art_made += 1
+            narrator "{i}You increased your art skill!{/i}"
+
+        "Play a computer game.":
+            scene dorm_day
+            player "{i}I booted up my computer and the game of my choice. The moment I clicked the play button, everything else was a blur, kind of."
+            $gaming += 1
+            narrator "{i}You increased your gaming skill!{/i}"
+
+        "Text Léa." if texted_lea == False:
+            show phone
+            if lea_lev == 1:
+                player "{i}I had her number so I thought to shoot her a quick text greeting her and letting her know it was me.{/i}"
+                lea "Hi!"
+                player "{i}Wow, that was fast!{/i}"
+                lea "If you're still down to go shopping with me, let's meet up after class on Friday?"
+                lea "Take your time to decide!"
+                $texted_lea = True
+                jump to_do_sunday
+
+    player "{i}Dinner time was approaching.{/i}"
+    menu:
+        "{i}What shall I do for dinner?{/i}"
+
+        "Buy dinner from the cafeteria. {i}This action will cost $10{/i}":
+            menu:
+                "{i}What should I get?{/i}"
+
+                "Pizza":
+                    scene lt_pizza
+                    player "{i}I decided to buy a slice of pizza and it came with a drink.{/i}"
+                    player "{i}To be honest, it was pretty delicious!{/i}"
+
+                "Miso soup":
+                    scene lt_miso
+                    player "{i}Today, it was miso soup for me!{/i}"
+                    player "{i}I didn't have much else to say other than that the soup was very tasty!{/i}"
+
+            $money -= 10
+            jump evening_activity_sunday
+
+        "Cook something in the dorm building kitchen.":
+            scene kitch
+
+
+    menu:
+        "{i}What shall I cook?{/i}"
+
+        "Make instant ramen":
+            player "{i}I boiled a couple of cups of water then plopped the noodles in.{/i}"
+            player "{i}Once they were done, I poured everything into a bowl.{/i}"
+            player "{i}It was pretty tasty.{/i}"
+            $cooking += 1
+            narrator "{i}You increased your cooking skill!{/i}"
+
+        "Get cereal with milk":
+            player "{i}The task of getting cereal and pouring milk on it was easy.{/i}"
+            player "{i}This made my breakfast quick and easy.{/i}"
+            narrator "{i}You did not increase your cooking skill.{/i}"
+
+        "Make spaghetti and meatballs" if cooking >= 1:
+            player "{i}I laid out all the ingredients I found from the various cupbords and set to work.{/i}"
+            player "{i}The result was a delicious and nutritious bunch of noodles topped with rich marinara sauce and savory meatballs.{/i}"
+            $cooking += 2
+            narrator "{i}You increased your cooking skill!{/i}"
+
+label evening_activity_sunday:
+    menu:
+        "{i}What shall I do?{/i}"
+
+        "Go for a run.":
+            player "{i}I decided to jog a bit around campus.{/i}"
+            scene wp
+            player "{i}Running around at my own pace has felt fantastic and I couldn't be gladder to get the exercise.{/i}"
+            player "{i}On my way back from the library to the dorms, I came across a curious split in the path.{/i}"
+
+            menu:
+                "{i}Do I go back to my dorm or go down this path?{/i}"
+
+                "Go back to the dorms":
+                    player "{i}I decided that I've had enough walking around for today, so I headed back to my room.{/i}"
+                    $strength += 2
+                    narrator "{i}You increased your strength skill!{/i}"
+
+                "Take the other path" if beento_sde == False:
+                    player "{i}I was feeling adventurous, so I thought taking this unfamilar path was a good idea.{/i}"
+                    scene sde
+                    player "{i}After what seemed to be a long walk on a flat, level path, I came across a hill.{/i}"
+                    player "{i}The path still goes over this hill so I continued walking.{/i}"
+                    player "{i}To my surprise, the path stopped on the very top of the hill.{/i}"
+                    player "{i}However, I looked up and saw that the skies were clearer than I've ever seen before.{/i}"
+                    player "{i}Any star-gazer would be really happy to find this place.{/i}"
+                    player "{i}Realizing how dark it had gotten, I turned around to head back to my dorm.{/i}"
+                    $beento_sde = True
+                    $strength += 5
+
+                "Go up to the hill again" if beento_sde == True:
+                    player "{i}I could feel that mountain where I could see thousands of stars clearly call to me.{/i}"
+                    player "{i}So I just had to go.{/i}"
+                    scene sde
+                    player "{i}I walked up to the hill's peak, taking in the gorgeous scene on the night sky.{/i}"
+                    player "{i}After some time, I headed back to my dorm.{/i}"
+                    $strength += 5
+
+        "Read a cookbook.":
+            scene dorm_day
+            player "{i}I spent a few hours looking through a variety of different recipes. Maybe I should try making all of these sooner or later."
+            $cooking += 1
+            narrator "{i}You increased your cooking skill!{/i}"
+
+        "Write a short story.":
+            scene dorm_day
+            player "{i}I pulled out all my writing materials and got busy writing a short story. I don't know whether it turned out okay or not but that was fun!{/i}"
+            $writing += 1
+            $ss_written += 1
+            narrator "{i}You increased your writing skill!{/i}"
+
+        "Draw something":
+            scene dorm_day
+            player "{i}I got all my art tools out and started drawing. After what seemed to be hours, I'm finally finished with my latest piece. Whew!{/i}"
+            $art += 1
+            $art_made += 1
+            narrator "{i}You increased your art skill!{/i}"
+
+        "Play a computer game.":
+            scene dorm_day
+            player "{i}I booted up my computer and the game of my choice. The moment I clicked the play button, everything else was a blur, kind of."
+            $gaming += 1
+            narrator "{i}You increased your gaming skill!{/i}"
+
+        "Text Léa." if texted_lea == False:
+            show phone
+            if lea_lev == 1:
+                player "{i}I had her number so I thought to shoot her a quick text greeting her and letting her know it was me.{/i}"
+                lea "Hi!"
+                player "{i}Wow, that was fast!{/i}"
+                lea "If you're still down to go shopping with me, let's meet up after class on Friday?"
+                lea "Take your time to decide!"
+                $texted_lea = True
+
+
+    scene dorm_night_off
+
+    player "{i}Before I knew it, the sky got darker and I had gotten very sleepy.{/i}"
+    jump Monday
+
 
 #End of game
 

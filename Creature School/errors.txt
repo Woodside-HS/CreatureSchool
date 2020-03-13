@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 625: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    menu:
-    ^
+The label Saturday is defined twice, at
+  File "game/script.rpy", line 2924 and
+  File "game/script.rpy", line 3348.
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu Mar 05 14:36:48 2020
+Fri Mar 13 14:34:47 2020
